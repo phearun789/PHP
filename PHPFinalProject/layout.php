@@ -1,4 +1,19 @@
 <?php 
+// Database connection
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "library_system";
+
+$conn = new mysqli($host, $user, $pass, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch books
+$sql = "SELECT * FROM books";
+$result = $conn->query($sql);
 
 $current_page = basename($_SERVER['PHP_SELF']);
 

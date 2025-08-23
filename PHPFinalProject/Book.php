@@ -1,5 +1,7 @@
 <?php
+
 include "layout.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,24 +65,37 @@ include "layout.php";
                 <span class="visually-hidden">Next</span>
             </button>
       </div>
-      <h3>Popular</h3>
-      <h7>This is the must popular books show here.</h7>
+      <h3>Popular Books</h3>
+      <h7>Here's the must popular books show here.</h7>
     <!-- card 1-->
             <div class="container mt-3">
               <div class="row">
-                <div class="col-md-3">
-                  <div class="card shadow-sm border-0 my-card" style= " margin-top: 10px;">
-                    <img src="img/harry.jpg" class="card-img-top mx-auto d-block mt-3" 
-                        style="width: 8rem; height: 12rem; object-fit: cover; border-radius: 8px;" alt="Book cover">
-                    <div class="card-body text-center">
-                      <h5 class="card-title fw-bold">Harry Potter</h5>
-                      <p class="card-text text-muted small">by J.K. Rowling</p>
-                      <a href="#" class="btn btn-sm btn-primary w-100">Add to Cart</a>
-                    </div>
-                  </div>
-                </div>
-    <!-- card 2-->
-                <div class="col-md-3">
+
+              <?php if ($result->num_rows > 0): ?>
+                  <?php while ($row = $result->fetch_assoc()): ?>
+                      <div class="col-md-3">
+                          <div class="card shadow-sm border-0 my-card" style="margin-top: 10px;">
+                              <img src="uploads/<?php echo $row['cover_image']; ?>" 
+                                  class="card-img-top mx-auto d-block mt-3"
+                                  style="width: 8rem; height: 12rem; object-fit: cover; border-radius: 8px;" 
+                                  alt="Book cover">
+                              <div class="card-body text-center">
+                                  <h5 class="card-title fw-bold"><?php echo $row['title']; ?></h5>
+                                  <p class="card-text text-muted small">by <?php echo $row['author']; ?></p>
+                                  <p class="card-text"><small>Stock: <?php echo $row['available_stock']; ?></small></p>
+                                  <a href="borrow.php?book_id=<?php echo $row['book_id']; ?>" class="btn btn-sm btn-primary w-100">Borrow</a>
+                              </div>
+                          </div>
+                      </div>
+                  <?php endwhile; ?>
+              <?php else: ?>
+                  <p>No books available</p>
+              <?php endif; ?>
+
+              </div>
+            </div>
+<!--   Sample cart   -->
+    <!--      <div class="col-md-3">
                   <div class="card shadow-sm border-0 my-card" style= " margin-top: 10px;">
                     <img src="img/walk.jpg" class="card-img-top mx-auto d-block mt-3" 
                         style="width: 8rem; height: 12rem; object-fit: cover; border-radius: 8px;" alt="Book cover">
@@ -91,7 +106,7 @@ include "layout.php";
                     </div>
                   </div>
                 </div>
-                <!-- card 2-->
+               
                 <div class="col-md-3">
                   <div class="card shadow-sm border-0 my-card" style= " margin-top: 10px;">
                     <img src="img/chamnot.jpg" class="card-img-top mx-auto d-block mt-3" 
@@ -103,7 +118,7 @@ include "layout.php";
                     </div>
                   </div>
                 </div>
-                <!-- card 2-->
+                
                 <div class="col-md-3">
                   <div class="card shadow-sm border-0 my-card" style= " margin-top: 10px;">
                     <img src="img/Beyon.jpg" class="card-img-top mx-auto d-block mt-3" 
@@ -115,7 +130,7 @@ include "layout.php";
                     </div>
                   </div>
                 </div>
-                <!-- card 2-->
+                
                 <div class="col-md-3">
                   <div class="card shadow-sm border-0 my-card"style= " margin-top: 10px;">
                     <img src="img/terktle.jpg" class="card-img-top mx-auto d-block mt-3" 
@@ -127,7 +142,7 @@ include "layout.php";
                     </div>
                   </div>
                 </div>
-                <!-- card 2-->
+                
                 <div class="col-md-3">
                   <div class="card shadow-sm border-0 my-card" style= " margin-top: 10px;">
                     <img src="img/bba.jpg" class="card-img-top mx-auto d-block mt-3" 
@@ -139,7 +154,7 @@ include "layout.php";
                     </div>
                   </div>
                 </div>
-                <!-- card 2-->
+                
                 <div class="col-md-3">
                   <div class="card shadow-sm border-0 my-card" style= " margin-top: 10px;">
                     <img src="img/cca.jpg" class="card-img-top mx-auto d-block mt-3" 
@@ -151,7 +166,7 @@ include "layout.php";
                     </div>
                   </div>
                 </div>
-                <!-- card 2-->
+                
                 <div class="col-md-3">
                   <div class="card shadow-sm border-0 my-card" style= " margin-top: 10px;">
                     <img src="img/mma.jpg" class="card-img-top mx-auto d-block mt-3" 
@@ -162,10 +177,13 @@ include "layout.php";
                       <a href="#" class="btn btn-sm btn-primary w-100">Add to Cart</a>
                     </div>
                   </div>
-                </div>
+                </div> -->
               
               </div>
             </div>
   </main>
 </body>
 </html>
+
+
+<?php $conn->close(); ?>
