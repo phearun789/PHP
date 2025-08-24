@@ -1,6 +1,5 @@
 <?php
 include "layout.php";
-
 // Summary Counts
 $totalBooks = $conn->query("SELECT COUNT(*) as c FROM books")->fetch_assoc()['c'];
 $totalMembers = $conn->query("SELECT COUNT(*) as c FROM members")->fetch_assoc()['c'];

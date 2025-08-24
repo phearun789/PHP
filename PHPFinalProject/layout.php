@@ -64,7 +64,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 
         <div class="p-3">
-        <a href="#" class="btn logout-btn w-100">
+        <a href="logout.php" class="btn logout-btn w-100">
             <i class="fas fa-right-from-bracket"></i> Logout
         </a>
         </div>
