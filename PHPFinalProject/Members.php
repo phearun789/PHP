@@ -87,12 +87,12 @@ $members = $conn->query("SELECT * FROM members ORDER BY member_id DESC");
       </table>
     </div>
   </div>
-   <!-- Add Book Modal -->
+   <!-- Add Member Modal -->
                 <div class="modal fade" id="addmemberModal" tabindex="-1" aria-labelledby="addmemberModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <form action="add_member.php" method="POST" enctype="multipart/form-data" class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="addmemberModalLabel">Add New Book</h5>
+                        <h5 class="modal-title" id="addmemberModalLabel">Add New Member</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                       </div>
                       <div class="modal-body">
