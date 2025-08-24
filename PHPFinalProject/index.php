@@ -76,7 +76,7 @@ while($row = $trend->fetch_assoc()) {
         </div>
       </div>
 
-      <div class="row mt-4 justify-content-center">
+      <div class="row mt-4 ">
         <!-- Pie Chart -->
         <div class="col-4">
           <div class="card chart-card shadow-sm">
@@ -88,7 +88,7 @@ while($row = $trend->fetch_assoc()) {
         </div>
 
         <!-- Line Chart -->
-        <div class="col-7">
+        <div class="col-8">
           <div class="card chart-card shadow-sm">
             <div class="card-body">
               <h6 class="fw-semibold">📈 Monthly Borrowing Trend</h6>

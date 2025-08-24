@@ -60,11 +60,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     <i class="fas fa-handshake"></i>  Borrow / Return
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link <?php if($current_page == 'Settings.php') echo 'active'; ?>" href="Settings.php">
-                    <i class="fas fa-cog"></i> Settings
-                </a>
-            </li>
         </ul>
 
 
